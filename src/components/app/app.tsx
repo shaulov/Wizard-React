@@ -1,12 +1,9 @@
-import Wizard from '../wizard/wizard';
-import './app.css';
+import MainPage from "../../pages/main-page/main-page";
 
 function App(): JSX.Element {
   return (
     <div className="app-container">
-      <Wizard>
-        <p>Hello World</p>
-      </Wizard>
+      <MainPage />
     </div>
   );
 }

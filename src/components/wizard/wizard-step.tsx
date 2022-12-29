@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 type WizardStepProps = {
-  children: ReactNode;
+  children: JSX.Element;
 }
 
 function WizardStep ({ children }: WizardStepProps) {
