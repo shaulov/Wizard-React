@@ -1,9 +1,12 @@
+import Wizard from '../wizard/wizard';
 import './app.css';
 
 function App(): JSX.Element {
   return (
     <div className="app-container">
-      <p>Hello World</p>
+      <Wizard>
+        <p>Hello World</p>
+      </Wizard>
     </div>
   );
 }
