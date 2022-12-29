@@ -1,4 +1,5 @@
 import MainPage from "../../pages/main-page/main-page";
+import './app.css'
 
 function App(): JSX.Element {
   return (
