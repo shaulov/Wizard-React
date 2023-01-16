@@ -1,4 +1,5 @@
 import { ReactNode, Children, useState } from "react";
+import { STEP_LENGTH } from "../../const";
 import './wizard.css';
 
 type WizardProps = {
@@ -6,17 +7,17 @@ type WizardProps = {
 }
 
 function Wizard ({ children }: WizardProps) {
-  const [activeStep, setActiveStep] = useState(0)
+  const [activeStep, setActiveStep] = useState(0);
   const steps = Children.toArray(children);
   const currentStep = steps[activeStep];
   const lastStep = steps.length - 1;
 
   const onNextClick = () => {
-    setActiveStep(activeStep => (Math.min(activeStep + 1, lastStep)));
+    setActiveStep(activeStep => (Math.min(activeStep + STEP_LENGTH, lastStep)));
   }
 
   const onPrevClick = () => {
-    setActiveStep(activeStep => (Math.max(activeStep - 1, 0)));
+    setActiveStep(activeStep => (Math.max(activeStep - STEP_LENGTH, 0)));
   }
 
   return (
