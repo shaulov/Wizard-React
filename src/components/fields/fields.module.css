@@ -1,0 +1,35 @@
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.formGroup {
+    display: flex;
+    gap: 4%;
+
+}
+
+.formGroup > div {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .formGroup {
+        flex-direction: column;
+    }
+}
+
+input:not([type="checkbox"]),
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.formControl {
+    margin-bottom: 16px;
+}

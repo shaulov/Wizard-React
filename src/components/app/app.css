@@ -20,40 +20,15 @@ h1 {
 }
 
 form {
+    display: grid;
+    align-content: space-between;
+    box-sizing: border-box;
+    min-width: 680px;
+    height: 340px;
     padding: 40px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-fieldset {
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-.form-group {
-    display: flex;
-    gap: 4%;
-
-}
-
-.form-group > div {
-    width: 100%;
-}
-
-input:not([type="checkbox"]),
-select,
-textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.form-control {
-    margin-bottom: 16px;
 }
 
 button {
@@ -71,14 +46,4 @@ button {
 
 button:hover {
     background-color: var(--secondary-color);
-}
-
-.group-two, .group-three {
-    display: none;
-}
-
-@media screen and (max-width: 600px) {
-    .form-group {
-        flex-direction: column;
-    }
 }
