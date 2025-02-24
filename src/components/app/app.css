@@ -1,0 +1,84 @@
+:root {
+    --primary-color: #8c852a;
+    --secondary-color: #858034;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: sans-serif;
+    line-height: 1.4;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    padding: 40px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.form-group {
+    display: flex;
+    gap: 4%;
+
+}
+
+.form-group > div {
+    width: 100%;
+}
+
+input:not([type="checkbox"]),
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-control {
+    margin-bottom: 16px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+button:hover {
+    background-color: var(--secondary-color);
+}
+
+.group-two, .group-three {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .form-group {
+        flex-direction: column;
+    }
+}
