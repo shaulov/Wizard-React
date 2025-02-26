@@ -5,7 +5,7 @@ import { FieldThree } from '../fields/field-three';
 import { ButtonControls } from '../button-controls';
 import './app.css';
 
-const fields = [
+const steps = [
     <FieldOne />,
     <FieldTwo />,
     <FieldThree />
@@ -26,15 +26,15 @@ function App() {
 
     return (
         <form id="myForm">
-            {fields[step]}
+            {steps[step]}
 
-            {step === fields.length - 1 && (
+            {step === steps.length - 1 && (
                 <button type="submit">Confirm and Submit</button>
             )}
 
             <ButtonControls
                 step={step}
-                stepsLength={fields.length}
+                stepsLength={steps.length}
                 onPreviousClick={handlePrevStep}
                 onNextClick={handleNextStep}
             />

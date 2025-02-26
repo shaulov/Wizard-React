@@ -33,14 +33,16 @@ function ButtonControls({
                 </button>
             )}
             <span id="stepInfo">{stepInfoTitle}</span>
-            <button
-                className={styles.button}
-                type="button"
-                id="next"
-                onClick={handleNextClick}
-            >
-                Next
-            </button>
+            {(step < stepsLength - 1) && (
+                <button
+                    className={styles.button}
+                    type="button"
+                    id="next"
+                    onClick={handleNextClick}
+                >
+                    Next
+                </button>
+            )}
         </div>
     );
 }
