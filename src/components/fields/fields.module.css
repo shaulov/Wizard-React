@@ -33,3 +33,14 @@ textarea {
 .formControl {
     margin-bottom: 16px;
 }
+
+input.error, select.error, textarea.error {
+    outline: .5px solid red;
+}
+
+.errorMessage {
+    font-size: x-small;
+    color: red;
+    display: block;
+    margin-top: 2px;
+}
