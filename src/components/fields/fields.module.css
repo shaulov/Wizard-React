@@ -19,28 +19,3 @@ fieldset {
         flex-direction: column;
     }
 }
-
-input:not([type="checkbox"]),
-select,
-textarea {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.formControl {
-    margin-bottom: 16px;
-}
-
-input.error, select.error, textarea.error {
-    outline: .5px solid red;
-}
-
-.errorMessage {
-    font-size: x-small;
-    color: red;
-    display: block;
-    margin-top: 2px;
-}

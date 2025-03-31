@@ -1,15 +1,16 @@
 import { useCallback, useState } from 'react';
 import { useValidation } from '../validation-context';
-import { FieldOne } from '../fields/field-one.tsx';
-import { FieldTwo } from '../fields/field-two';
-import { FieldThree } from '../fields/field-three';
+import { StepContainer } from '../step-container';
 import { ButtonControls } from '../button-controls';
+import { Field, FieldData } from '../../types.ts';
+import { fieldsData, STEP_COUNT } from '../../const.ts';
 import './app.css';
-
-const steps = [<FieldOne />, <FieldTwo />, <FieldThree />];
 
 function App() {
     const [step, setStep] = useState(0);
+    const [data, setData] = useState<FieldData>(() =>
+        fieldsData.map(item => ({ ...item, blurred: false, }))
+    );
     const { hasValidationError } = useValidation();
 
     const handlePrevStep = useCallback(() => {
@@ -24,17 +25,27 @@ function App() {
         setStep((prev) => prev + 1);
     }, [hasValidationError]);
 
+    const handleUpdate = (value: Field) => {
+        const updatedValueIndex = data.findIndex(item => item.id === value.id);
+        const newArray = data.with(updatedValueIndex, value);
+        setData(newArray);
+    }
+
     return (
         <form id="myForm">
-            {steps[step]}
+            <StepContainer
+                step={step}
+                data={data}
+                onUpdate={handleUpdate}
+            />
 
-            {step === steps.length - 1 && (
+            {step === STEP_COUNT - 1 && (
                 <button type="submit">Confirm and Submit</button>
             )}
 
             <ButtonControls
                 step={step}
-                stepsLength={steps.length}
+                stepsLength={STEP_COUNT}
                 onPreviousClick={handlePrevStep}
                 onNextClick={handleNextStep}
             />
