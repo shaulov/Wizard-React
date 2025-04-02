@@ -1,6 +1,4 @@
-import { FieldOne } from '../fields/field-one.tsx';
-import { FieldTwo } from '../fields/field-two';
-import { FieldThree } from '../fields/field-three';
+import { Fieldset } from '../fieldset';
 import { Field, FieldData } from '../../types.ts';
 
 type Props = {
@@ -10,16 +8,11 @@ type Props = {
 }
 
 function StepContainer({ step, data, onUpdate }: Props) {
-    switch (step) {
-        case 0:
-            return <FieldOne data={data} onUpdate={onUpdate} />;
-        case 1:
-            return <FieldTwo />;
-        case 2:
-            return <FieldThree />;
-        default:
-            return null;
-    }
+    const currentDataByStep = data.filter(item => item.step === step);
+
+    return (
+        <Fieldset data={currentDataByStep} onUpdate={onUpdate} />
+    );
 }
 
 export { StepContainer };

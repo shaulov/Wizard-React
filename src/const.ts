@@ -38,7 +38,47 @@ export const fieldsData = [
         type: 'date',
         placeholder: 'Enter your birth date',
         step: 0,
-    }
+    },
+    {
+        id: 'cv',
+        title: 'Upload CV/Resume',
+        isRequired: true,
+        errorMessage: 'CV/Resume is required',
+        value: '',
+        type: 'file',
+        placeholder: 'Enter',
+        step: 1,
+    },
+    {
+        id: 'department',
+        title: 'Department',
+        isRequired: true,
+        errorMessage: 'Department is required',
+        value: '',
+        type: 'text',
+        placeholder: 'Enter your department',
+        step: 1,
+    },
+    {
+        id: 'skills',
+        title: 'Skills (optional)',
+        isRequired: false,
+        errorMessage: '',
+        value: '',
+        type: 'text',
+        placeholder: 'Enter your skills',
+        step: 2,
+    },
+    {
+        id: 'terms',
+        title: 'I agree to the terms and conditions',
+        isRequired: true,
+        errorMessage: '',
+        value: '',
+        type: 'checkbox',
+        placeholder: 'Terms and conditions must be accepted',
+        step: 2,
+    },
 ];
 
 export const STEP_COUNT = 3;

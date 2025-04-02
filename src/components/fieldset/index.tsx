@@ -1,13 +1,13 @@
 import { FormControl } from '../form-control';
 import { Field, FieldData } from '../../types.ts';
-import styles from './fields.module.css';
+import styles from './fieldset.module.css';
 
 type Props = {
     data: FieldData;
     onUpdate: (value: Field) => void;
 }
 
-function FieldOne({ data, onUpdate }: Props) {
+function Fieldset({ data, onUpdate }: Props) {
     return (
         <fieldset>
             <div className={styles.formGroup}>
@@ -19,4 +19,4 @@ function FieldOne({ data, onUpdate }: Props) {
     );
 }
 
-export { FieldOne };
+export { Fieldset };
