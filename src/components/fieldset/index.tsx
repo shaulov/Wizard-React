@@ -9,12 +9,10 @@ type Props = {
 
 function Fieldset({ data, onUpdate }: Props) {
     return (
-        <fieldset>
-            <div className={styles.formGroup}>
-                {data.map(item => (
-                    <FormControl key={item.id} data={item} onUpdate={onUpdate} />
-                ))}
-            </div>
+        <fieldset className={styles.formGroup}>
+            {data.map(item => (
+                <FormControl key={item.id} data={item} onUpdate={onUpdate} />
+            ))}
         </fieldset>
     );
 }

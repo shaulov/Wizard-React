@@ -8,10 +8,6 @@ textarea {
     border-radius: 4px;
 }
 
-.formControl {
-    margin-bottom: 16px;
-}
-
 input.error, select.error, textarea.error {
     outline: .5px solid red;
 }

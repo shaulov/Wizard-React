@@ -26,7 +26,7 @@ function FormControl({ data, onUpdate }: Props) {
     };
 
     return (
-        <div className={styles.formControl}>
+        <div>
             <label htmlFor={data.id}>
                 {data.title} <span style={{ color: 'red' }}>*</span>
             </label>

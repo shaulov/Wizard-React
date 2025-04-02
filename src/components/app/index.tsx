@@ -1,7 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useValidation } from '../validation-context';
 import { StepContainer } from '../step-container';
 import { ButtonControls } from '../button-controls';
+import { getEmptyValuesByCurrentStep } from '../../utils/get-empty-values.ts';
+import { setBlurredByStep } from '../../utils/blurred.ts';
 import { Field, FieldData } from '../../types.ts';
 import { fieldsData, STEP_COUNT } from '../../const.ts';
 import './app.css';
@@ -13,17 +15,25 @@ function App() {
     );
     const { hasValidationError } = useValidation();
 
-    const handlePrevStep = useCallback(() => {
+    const handlePrevStep = () => {
         if (step !== 0) {
             setStep((prev) => prev - 1);
         }
-    }, [step]);
+    };
 
-    const handleNextStep = useCallback(() => {
+    const handleNextStep = () => {
         if (hasValidationError) return;
 
+        const hasEmptyValues = Boolean(getEmptyValuesByCurrentStep(data, step).length);
+
+        if (hasEmptyValues) {
+            const newData = setBlurredByStep(data, step);
+            setData(newData);
+            return;
+        }
+
         setStep((prev) => prev + 1);
-    }, [hasValidationError]);
+    };
 
     const handleUpdate = (value: Field) => {
         const updatedValueIndex = data.findIndex(item => item.id === value.id);
