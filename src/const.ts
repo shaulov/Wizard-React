@@ -47,6 +47,7 @@ export const fieldsData = [
         value: '',
         type: 'file',
         placeholder: 'Enter',
+        accept: '.doc,.docx, image/*, .pdf',
         step: 1,
     },
     {
