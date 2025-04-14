@@ -13,13 +13,18 @@ function FormControl({ data, onUpdate }: Props) {
     const { updateValidation } = useValidation();
 
     const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
-        let value: string | File = evt.target.value;
+        let value: string | boolean | File = evt.target.value;
 
         if (evt.target.type === 'file') {
             value = evt.target.files?.[0] ?? '';
         }
+
+        if (evt.target.type === 'checkbox') {
+            value = evt.target.checked;
+        }
+
         setValue(value);
-        onUpdate({ ...data, value: evt.target.value });
+        onUpdate({ ...data, value });
     };
 
     const handleBlur = (evt: ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +45,8 @@ function FormControl({ data, onUpdate }: Props) {
     return (
         <div>
             <label htmlFor={data.id}>
-                {data.title} <span style={{ color: 'red' }}>*</span>
+                {data.title}
+                {data.isRequired && <span style={{ color: 'red' }}>*</span>}
             </label>
             <input {...commonProps} />
             {data?.isRequired && !data.value && data.blurred && (

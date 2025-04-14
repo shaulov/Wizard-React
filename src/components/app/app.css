@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box;
     margin: 0 auto;
     padding: 20px;
     font-family: sans-serif;
@@ -24,7 +25,7 @@ form {
     align-content: space-between;
     box-sizing: border-box;
     min-width: 680px;
-    height: 340px;
+    min-height: 340px;
     padding: 40px;
     background: #fff;
     border-radius: 5px;

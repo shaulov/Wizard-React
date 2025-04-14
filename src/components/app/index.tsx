@@ -49,13 +49,13 @@ function App() {
                 onUpdate={handleUpdate}
             />
 
-            {step === STEP_COUNT - 1 && (
+            {step === STEP_COUNT && (
                 <button type="submit">Confirm and Submit</button>
             )}
 
             <ButtonControls
                 step={step}
-                stepsLength={STEP_COUNT}
+                stepsLength={STEP_COUNT + 1}
                 onPreviousClick={handlePrevStep}
                 onNextClick={handleNextStep}
             />

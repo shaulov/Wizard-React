@@ -1,0 +1,39 @@
+.container {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summary p:first-child {
+    width: 30%;
+    flex-shrink: 0;
+    border-right: 1px solid var(--secondary-color);
+}
+
+.summary p:nth-child(2) {
+    width: 45%;
+    flex-shrink: 0;
+    padding-left: 10px;
+}
+
+.editBtn {
+    width: 25%;
+    margin-left: auto;
+    background-color: transparent;
+    color: var(--primary-color);
+    border: .7px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.editBtn:hover {
+    border: 2px solid var(--primary-color);
+    font-weight: bolder;
+    background-color: transparent;
+}

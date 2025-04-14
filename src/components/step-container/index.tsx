@@ -1,5 +1,7 @@
 import { Fieldset } from '../fieldset';
+import { Summary } from '../summary';
 import { Field, FieldData } from '../../types.ts';
+import { STEP_COUNT } from '../../const.ts';
 
 type Props = {
     step: number;
@@ -11,7 +13,13 @@ function StepContainer({ step, data, onUpdate }: Props) {
     const currentDataByStep = data.filter(item => item.step === step);
 
     return (
-        <Fieldset data={currentDataByStep} onUpdate={onUpdate} />
+        <>
+            {step < STEP_COUNT ? (
+                <Fieldset data={currentDataByStep} onUpdate={onUpdate} />
+            ) : (
+                <Summary data={data} />
+            )}
+        </>
     );
 }
 

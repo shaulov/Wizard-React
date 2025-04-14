@@ -6,7 +6,7 @@ export type Field = {
     isRequired?: boolean;
     errorMessage?: string;
     step: number;
-    value: string | File;
+    value: string | boolean | File;
     type: string;
     placeholder: string;
     blurred: boolean;
