@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback, type FormEvent } from 'react';
 import { useValidation } from '../validation-context';
 import { StepContainer } from '../step-container';
 import { ButtonControls } from '../button-controls';
@@ -13,6 +13,7 @@ function App() {
     const [data, setData] = useState<FieldData>(() =>
         fieldsData.map(item => ({ ...item, blurred: false, }))
     );
+    const [submitted, setSubmitted] = useState(false);
     const { hasValidationError } = useValidation();
 
     const handlePrevStep = () => {
@@ -41,25 +42,37 @@ function App() {
         setData(newArray);
     }
 
+    const handleSubmit = useCallback((evt: FormEvent) => {
+        evt.preventDefault();
+        setSubmitted(true);
+    }, []);
+
     return (
-        <form id="myForm">
-            <StepContainer
-                step={step}
-                data={data}
-                onUpdate={handleUpdate}
-            />
+        <>
+            {submitted ? (
+                <p>Successfully submitted!</p>
+            ) : (
+                <form id="myForm" onSubmit={handleSubmit}>
+                    <StepContainer
+                        step={step}
+                        data={data}
+                        setStep={setStep}
+                        onUpdate={handleUpdate}
+                    />
 
-            {step === STEP_COUNT && (
-                <button type="submit">Confirm and Submit</button>
+                    {step === STEP_COUNT && (
+                        <button type="submit">Confirm and Submit</button>
+                    )}
+
+                    <ButtonControls
+                        step={step}
+                        stepsLength={STEP_COUNT + 1}
+                        onPreviousClick={handlePrevStep}
+                        onNextClick={handleNextStep}
+                    />
+                </form>
             )}
-
-            <ButtonControls
-                step={step}
-                stepsLength={STEP_COUNT + 1}
-                onPreviousClick={handlePrevStep}
-                onNextClick={handleNextStep}
-            />
-        </form>
+        </>
     );
 }
 

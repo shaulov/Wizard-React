@@ -3,9 +3,10 @@ import styles from './summary.module.css';
 
 type Props = {
     data: FieldData;
+    setStep: (value: number) => void;
 }
 
-function Summary({ data }: Props) {
+function Summary({ data, setStep }: Props) {
     return (
         <div className={styles.container}>
             {data.filter(item => item.type !== 'checkbox').map((item) => (
@@ -15,7 +16,12 @@ function Summary({ data }: Props) {
                         {item.type === 'file' ? 'File' : String(item.value)}
                         {item.value === '' && 'No value'}
                     </p>
-                    <button type="button" className={styles.editBtn} id={`${item.id}-edit`}>
+                    <button
+                        className={styles.editBtn}
+                        type="button"
+                        id={`${item.id}-edit`}
+                        onClick={() => setStep(item.step)}
+                    >
                         <span>✎</span>
                         <span>Edit</span>
                     </button>
